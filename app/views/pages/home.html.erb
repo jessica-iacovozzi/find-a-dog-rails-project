@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.avma.org/sites/default/files/2022-11/avma-website-senior-pets-hero-2880x900.jpg);">
+  <div class="container">
+    <h1>Find the perfect dog for you!</h1>
+    <p>And help them get their happy ending.</p>
+  </div>
+</div>
+
+<div class="cards container">
+
+    <% @dogs.each do |dog| %>
+      <div class="card-trip" id='<%= dog.id %>'>
+      <%# <%= link_to dog.url, target: "_blank", class: 'card-link' do %>
+        <%= image_tag dog.picture, class: 'card-image' %>
+        <div class="card-trip-infos">
+        <p class="card-plus">+</p>
+
+          <h3><%= dog.name %></h3>
+          <p><%= dog.breed %></p>
+          <p><%= dog.sex %></p>
+          <p><%= dog.age_group %></p>
+          <p><%= dog.age %></p>
+
+        </div>
+        <%# <% end %>
+      </div>
+    <% end %>
+  </div>

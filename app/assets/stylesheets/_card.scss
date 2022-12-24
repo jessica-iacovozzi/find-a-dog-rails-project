@@ -1,0 +1,84 @@
+.card-trip {
+  overflow: hidden;
+  background: white;
+  border: 1px solid #d2d1d3;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px #0000000d;
+  font-family: 'Red Hat Display', sans-serif;
+  width: 240px;
+  margin-bottom: 30px;
+  transition: .4s ease-in-out 0s;
+  height: 340px;
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 4px #00000033;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Red Hat Display', sans-serif;
+    color: #6504b5;
+  }
+  p {
+    font-size: 16px;
+    opacity: .7;
+    margin: 0;
+    padding: 2px;
+  }
+}
+
+.card-trip .card-trip-infos {
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-trip-infos .card-plus {
+  font-size: 20px;
+  color: white;
+  background-color: rgba(101, 5, 181, 0.1);
+  padding: 5px 10p;
+  margin: 10px auto 0;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  top: -300px;
+  width: 32px;
+}
+
+.cards {
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-image {
+  width: 240px;
+  vertical-align: middle;
+  overflow: hidden;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-button {
+  text-decoration: none;
+  color: white;
+  background-color: darksalmon;
+  padding: 10px 20px;
+  margin: 10px auto 0;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: .3s ease-in-out 0s;
+  &:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color: white;
+  }
+}
