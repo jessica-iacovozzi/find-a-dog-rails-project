@@ -1,14 +1,15 @@
 .card-trip {
   overflow: hidden;
+  text-align: center;
   background: white;
   border: 1px solid #d2d1d3;
   border-radius: 10px;
   box-shadow: 0 4px 4px #0000000d;
   font-family: 'Red Hat Display', sans-serif;
-  width: 240px;
+  width: 300px;
   margin-bottom: 30px;
   transition: .4s ease-in-out 0s;
-  height: 340px;
+  height: 400px;
   &:hover{
     transform: scale(1.05);
     box-shadow: 0 4px 4px #00000033;
@@ -29,10 +30,11 @@
 }
 
 .card-trip .card-trip-infos {
-  padding-top: 16px;
+  // padding-top: 16px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0 10px;
 }
 
 .card-trip-infos .card-plus {
@@ -60,10 +62,10 @@
 }
 
 .card-image {
-  width: 240px;
+  width: 300px;
   vertical-align: middle;
   overflow: hidden;
-  height: 200px;
+  height: 255px;
   object-fit: cover;
 }
 
@@ -81,4 +83,8 @@
     transform: scale(1.1);
     color: white;
   }
+}
+
+.container {
+  margin: 60px;
 }

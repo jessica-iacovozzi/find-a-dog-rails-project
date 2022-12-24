@@ -1,3 +1,7 @@
+<div class="navbar">
+  <%= link_to "HOME", "/", class: "nav-link" %>
+</div>
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.avma.org/sites/default/files/2022-11/avma-website-senior-pets-hero-2880x900.jpg);">
   <div class="container">
     <h1>Find the perfect dog for you!</h1>
@@ -14,11 +18,9 @@
         <div class="card-trip-infos">
         <p class="card-plus">+</p>
 
-          <h3><%= dog.name %></h3>
-          <p><%= dog.breed %></p>
-          <p><%= dog.sex %></p>
-          <p><%= dog.age_group %></p>
-          <p><%= dog.age %></p>
+          <h3><%= dog.name.split(' ').first %></h3>
+          <p><%= dog.breed.split('(').first %></p>
+          <p><%= dog.age_group %> <%= dog.sex %></p>
 
         </div>
         <%# <% end %>
