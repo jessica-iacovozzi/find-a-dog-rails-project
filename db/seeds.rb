@@ -2,7 +2,7 @@ require 'uri'
 require 'json'
 require 'net/http'
 
-# Dog.destroy_all
+Dog.destroy_all
 
 def fetch_ids(url)
   https = Net::HTTP.new(url.host, url.port)
@@ -50,24 +50,35 @@ dog_ids.each do |id|
   response = https.request(request)
   dogs_json = JSON.parse(response.body)
 
-  next if dogs_json['included'][4].nil?
+  next id if dogs_json['data'][0]['attributes']['url'].nil?
 
   pic = ''
   dogs_json['included'].each do |hash|
     pic = hash['attributes']['original']['url'] if hash['type'] == 'pictures'
   end
 
-  # pp dogs_json['data'][0]['attributes']['ageGroup']
+  lat, lon = 0
+  dogs_json['included'].each do |hash|
+    lat = hash['attributes']['lat'] if hash['type'] == 'locations'
+    lon = hash['attributes']['lon'] if hash['type'] == 'locations'
+  end
+
+  org = ''
+  dogs_json['included'].each do |hash|
+    org = hash['attributes']['name'] if hash['type'] == 'orgs'
+  end
+
   attributes = { age_group: dogs_json['data'][0]['attributes']['ageGroup'],
                  age: dogs_json['data'][0]['attributes']['ageString'],
                  breed: dogs_json['data'][0]['attributes']['breedString'],
                  name: dogs_json['data'][0]['attributes']['name'],
                  sex: dogs_json['data'][0]['attributes']['sex'],
                  url: dogs_json['data'][0]['attributes']['url'],
-                 latitude: dogs_json['included'][4]['attributes']['lat'],
-                 longitude: dogs_json['included'][4]['attributes']['lon'],
+                 latitude: lat,
+                 longitude: lon,
                  picture: pic,
-                 description: dogs_json['data'][0]['attributes']['descriptionHtml'] }
+                 description: dogs_json['data'][0]['attributes']['descriptionHtml'],
+                 organization: org }
   Dog.create!(attributes)
 end
 

@@ -1,22 +1,20 @@
 import GMaps from 'gmaps/gmaps.js';
 
-// const mapElement = document.getElementById('map');
-// // console.log(mapElement);
-// if (mapElement) {
-//   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
-//   // console.log(map);
-//   const markers = JSON.parse(mapElement.dataset.markers);
-//   // console.log(markers);
-//   map.addMarkers(markers);
-//   if (markers.length === 0) {
-//     map.setZoom(2);
-//   } else if (markers.length === 1) {
-//     map.setCenter(markers[0].lat, markers[0].lng);
-//     map.setZoom(14);
-//   } else {
-//     map.fitLatLngBounds(markers);
-//   }
-// }
+const mapElement = document.getElementById('map');
+
+if (mapElement) {
+  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+  const markers = JSON.parse(mapElement.dataset.markers);
+  map.addMarkers(markers);
+  if (markers.length === 0) {
+    map.setZoom(2);
+  } else if (markers.length === 1) {
+    map.setCenter(markers[0].lat, markers[0].lng);
+    map.setZoom(14);
+  } else {
+    map.fitLatLngBounds(markers);
+  }
+}
 
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -25,6 +23,7 @@ function initMap() {
   });
   const geocoder = new google.maps.Geocoder();
   const infowindow = new google.maps.InfoWindow();
+  console.log(infowindow)
 
   document.getElementById("submit").addEventListener("click", () => {
     geocodeLatLng(geocoder, map, infowindow);
@@ -44,7 +43,7 @@ function geocodeLatLng(geocoder, map, infowindow) {
     .geocode({ location: latlng })
     .then((response) => {
       if (response.results[0]) {
-        map.setZoom(11);
+        map.setZoom(5);
 
         const marker = new google.maps.Marker({
           position: latlng,

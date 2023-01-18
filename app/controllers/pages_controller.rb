@@ -1,14 +1,15 @@
 class PagesController < ApplicationController
   def home
     @dogs = Dog.all
+    markers
+  end
 
+  def markers
     @markers = @dogs.map do |dog|
       {
         lat: dog.latitude,
-        lng: dog.longitude
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-        # Uncomment the above line if you want each of your markers to display a info window when clicked
-        # (you will also need to create the partial "/flats/map_box")
+        lng: dog.longitude,
+        infoWindow: render_to_string(partial: 'info_window', locals: { dog: })
       }
     end
   end
