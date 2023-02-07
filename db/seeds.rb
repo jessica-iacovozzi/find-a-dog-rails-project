@@ -9,21 +9,21 @@ def fetch_ids(url)
   https.use_ssl = true
   request = Net::HTTP::Post.new(url)
   request['Content-Type'] = 'application/vnd.api+json'
-  request['Authorization'] = ENV.fetch('RESCUEGROUPS_KEY')
+  request['Authorization'] = ENV.fetch('RESCUE_GROUPS_API_KEY')
   request.body = JSON.dump({
-                             'data': {
-                               'filterRadius': {
-                                 'miles': 245,
-                                 'coordinates': '45.508888,-73.561668'
-                               }
-                             }
-                           })
+    'data': {
+      'filterRadius': {
+        'miles': 240,
+        'coordinates': '45.508888,-73.561668'
+      }
+    }
+  })
   response = https.request(request)
   dogs_json = JSON.parse(response.body)
   dogs_json['data']
 end
 
-dogs = fetch_ids(URI("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?limit=250&sort=animals.distance"))
+dogs = fetch_ids(URI("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?limit=250"))
 
 dog_ids = []
 
@@ -38,11 +38,11 @@ dog_ids.each do |id|
 
   request = Net::HTTP::Get.new(url)
   request['Content-Type'] = 'application/vnd.api+json'
-  request['Authorization'] = ENV.fetch('RESCUEGROUPS_KEY')
+  request['Authorization'] = ENV.fetch('RESCUE_GROUPS_API_KEY')
   request.body = JSON.dump({
                              'data': {
                                'filterRadius': {
-                                 'miles': 245,
+                                 'miles': 240,
                                  'coordinates': '45.508888,-73.561668'
                                }
                              }

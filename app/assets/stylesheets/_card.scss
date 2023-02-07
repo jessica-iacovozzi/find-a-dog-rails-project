@@ -9,7 +9,7 @@
   width: 300px;
   margin-bottom: 30px;
   transition: .4s ease-in-out 0s;
-  height: 400px;
+  height: auto;
   &:hover{
     transform: scale(1.05);
     box-shadow: 0 4px 4px #00000033;
@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 0 10px;
+  padding: 0 10px 10px;
 }
 
 .card-trip-infos .card-plus {
@@ -65,7 +65,7 @@
   width: 300px;
   vertical-align: middle;
   overflow: hidden;
-  height: 255px;
+  height: 270px;
   object-fit: cover;
 }
 

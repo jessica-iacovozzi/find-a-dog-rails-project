@@ -8,13 +8,14 @@ gem "rails", "~> 7.0.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-
+gem 'rescue_groups'
+gem 'will_paginate'
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
-
+gem 'cssbundling-rails'
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
 
@@ -27,7 +28,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "dotenv-rails", groups: [:development, :test]
-gem 'geocoder'
+# gem 'geocoder'
 gem 'webpacker'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
