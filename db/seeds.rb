@@ -23,7 +23,7 @@ def fetch_ids(url)
   dogs_json['data']
 end
 
-dogs = fetch_ids(URI("https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?limit=250"))
+dogs = fetch_ids(URI('https://api.rescuegroups.org/v5/public/animals/search/available/dogs/haspic?limit=250'))
 
 dog_ids = []
 
@@ -43,7 +43,7 @@ dog_ids.each do |id|
                              'data': {
                                'filterRadius': {
                                  'miles': 240,
-                                 'coordinates': '45.508888,-73.561668'
+                                 'coordinates': '45.508888,-73.561668' # MONTREAL
                                }
                              }
                            })
